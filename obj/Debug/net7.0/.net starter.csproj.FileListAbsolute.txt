@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\.net starter\bin\Debug\net7.0\.net starter.exe
+C:\Users\User\Desktop\.net starter\bin\Debug\net7.0\.net starter.deps.json
+C:\Users\User\Desktop\.net starter\bin\Debug\net7.0\.net starter.runtimeconfig.json
+C:\Users\User\Desktop\.net starter\bin\Debug\net7.0\.net starter.dll
+C:\Users\User\Desktop\.net starter\bin\Debug\net7.0\.net starter.pdb
+C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\.net starter.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\.net starter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\.net starter.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\.net starter.AssemblyInfo.cs
+C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\.net starter.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\.net starter.dll
+C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\refint\.net starter.dll
+C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\.net starter.pdb
+C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\.net starter.genruntimeconfig.cache
+C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\ref\.net starter.dll
