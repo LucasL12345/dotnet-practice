@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Net.Http;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace GreetingApp
@@ -8,10 +10,6 @@ namespace GreetingApp
     {
         static async Task Main(string[] args)
         {
-            Console.WriteLine("Please enter your name");
-            string name = Console.ReadLine();
-
-            Console.WriteLine($"Hello, {name}!");
 
             await GetApiResponse();
 
@@ -32,8 +30,12 @@ namespace GreetingApp
                     if (response.IsSuccessStatusCode)
                     {
                         string responseData = await response.Content.ReadAsStringAsync();
+
+                        Post post = JsonSerializer.Deserialize<Post>(responseData);
+
                         Console.WriteLine("API Response:");
                         Console.WriteLine(responseData);
+                        Console.WriteLine($"Title: {post.Title}");
                     }
                     else
                     {
@@ -46,5 +48,20 @@ namespace GreetingApp
                 }
             }
         }
+    }
+
+    public class Post
+    {
+        [JsonPropertyName("userId")]
+        public int UserId { get; set; }
+
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+
+        [JsonPropertyName("title")]
+        public string Title { get; set; }
+
+        [JsonPropertyName("body")]
+        public string Body { get; set; }
     }
 }
