@@ -13,3 +13,5 @@ C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\refint\.net starter.dll
 C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\.net starter.pdb
 C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\.net starter.genruntimeconfig.cache
 C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\ref\.net starter.dll
+C:\Users\User\Desktop\.net starter\bin\Debug\net7.0\Polly.dll
+C:\Users\User\Desktop\.net starter\obj\Debug\net7.0\.net starter.csproj.CopyComplete
