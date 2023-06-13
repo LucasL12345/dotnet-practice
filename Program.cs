@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Polly;
 
 namespace GreetingApp
 {
@@ -19,33 +20,32 @@ namespace GreetingApp
 
         static async Task GetApiResponse()
         {
-            using (HttpClient client = new HttpClient())
+            string apiUrl = "https://jsonplaceholder.typicode.com/posts/1";
+
+            var policy = Policy.Handle<HttpRequestException>().RetryAsync(3);
+
+            HttpResponseMessage response = await policy.ExecuteAsync(async () =>
             {
-                try
+                using (HttpClient client = new HttpClient())
                 {
-                    string apiUrl = "https://jsonplaceholder.typicode.com/posts/1";
-
-                    HttpResponseMessage response = await client.GetAsync(apiUrl);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string responseData = await response.Content.ReadAsStringAsync();
-
-                        Post post = JsonSerializer.Deserialize<Post>(responseData);
-
-                        Console.WriteLine("API Response:");
-                        Console.WriteLine(responseData);
-                        Console.WriteLine($"Title: {post.Title}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"API request failed with status code {response.StatusCode}");
-                    }
+                    HttpResponseMessage res = await client.GetAsync(apiUrl);
+                    return res;
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"An error occurred: {ex.Message}");
-                }
+            });
+
+            if (response.IsSuccessStatusCode)
+            {
+                string responseData = await response.Content.ReadAsStringAsync();
+
+                Post post = JsonSerializer.Deserialize<Post>(responseData);
+
+                Console.WriteLine("API Response:");
+                Console.WriteLine(responseData);
+                Console.WriteLine($"Title: {post.Title}");
+            }
+            else
+            {
+                Console.WriteLine($"API request failed with status code {response.StatusCode}");
             }
         }
     }
